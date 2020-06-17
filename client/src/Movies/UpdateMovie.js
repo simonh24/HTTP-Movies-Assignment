@@ -1,6 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
+import { Button, TextField, Card } from "@material-ui/core";
+import styled from "styled-components";
+
+const StyledCard = styled(Card)`
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 25px 35%;
+    padding: 25px 0;
+`;
+
+const CeneteredH2 = styled.h2`
+    text-align: center;
+`;
 
 const initialMovie = {
     title: "",
@@ -48,38 +64,48 @@ const UpdateMovie = props => {
 
     return (
         <div>
-            <h2>Update Item</h2>
+            <CeneteredH2>Update Item</CeneteredH2>
             <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="title"
-                    onChange={changeHandler}
-                    placeholder="title"
-                    value={movie.title}
-                />
-                <input
-                    type="text"
-                    name="director"
-                    onChange={changeHandler}
-                    placeholder="director"
-                    value={movie.director}
-                />
-                <input
-                    type="text"
-                    name="metascore"
-                    onChange={changeHandler}
-                    placeholder="metascore"
-                    value={movie.metascore}
-                />
-                <input
-                    type="text"
-                    name="stars"
-                    onChange={changeHandler}
-                    placeholder="stars"
-                    value={movie.stars}
-                />
+                <StyledCard>
+                    <TextField
+                        variant="outlined"
+                        type="text"
+                        name="title"
+                        onChange={changeHandler}
+                        placeholder="title"
+                        value={movie.title}
+                    />
+                    <br></br>
+                    <TextField
+                        variant="outlined"
+                        type="text"
+                        name="director"
+                        onChange={changeHandler}
+                        placeholder="director"
+                        value={movie.director}
+                    />
+                    <br></br>
+                    <TextField
+                        variant="outlined"
+                        type="text"
+                        name="metascore"
+                        onChange={changeHandler}
+                        placeholder="metascore"
+                        value={movie.metascore}
+                    />
+                    <br></br>
+                    <TextField
+                        variant="outlined"
+                        type="text"
+                        name="stars"
+                        onChange={changeHandler}
+                        placeholder="stars"
+                        value={movie.stars}
+                    />
+                    <br></br>
 
-                <button >Update</button>
+                    <Button variant="contained" color="primary" onClick={handleSubmit}>Update</Button>
+                </StyledCard>
             </form>
         </div>
     );

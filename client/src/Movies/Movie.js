@@ -2,6 +2,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useHistory } from "react-router-dom";
 import MovieCard from "./MovieCard";
+import styled from "styled-components";
+
+import { Button } from "@material-ui/core";
+
+const StyledDiv = styled.div`
+  width: 10%;
+  margin: 0 45%;
+  display: flex;
+  flex-direction: column;
+`;
 
 function Movie({ addToSavedList }) {
   const [movie, setMovie] = useState(null);
@@ -49,12 +59,15 @@ function Movie({ addToSavedList }) {
       <div className="save-button" onClick={saveMovie}>
         Save
       </div>
-      <div className="update-button" onClick={updateMovie}>
+      <StyledDiv>
+      <Button variant="contained" color="primary" className="update-button" onClick={updateMovie}>
         Update
-      </div>
-      <div className="delete-button" onClick={deleteMovie}>
+      </Button>
+      <br></br>
+      <Button variant="contained" color="secondary" className="delete-button" onClick={deleteMovie}>
         Delete
-      </div>
+      </Button>
+      </StyledDiv>
     </div>
   );
 }
